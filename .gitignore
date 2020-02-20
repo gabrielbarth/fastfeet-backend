@@ -2,6 +2,7 @@
 .env
 tmp
 .vscode
+yarn.lock
 
 # NodeJS specific #
 .nyc_output/
