@@ -33,6 +33,7 @@ routes.use(authMiddleware); // defining by global form. The execution if sequent
 routes.put('/users', UserController.update);
 
 // recipients
+routes.get('/recipients', RecipientController.index);
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
 

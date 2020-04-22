@@ -1,24 +1,44 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
+
 import Deliveryman from '../models/Deliveryman';
 import File from '../models/File';
 
 class DeliverymanController {
-  // listing all deliverymen and creating pagination
+  // listing all deliverymen or filtering by deliverymanName and creating pagination
   async index(req, res) {
-    const { page = 1 } = req.query;
+    const { q: deliverymanName, page = 1 } = req.query;
 
-    const deliverymen = await Deliveryman.findAll({
-      attributes: ['id', 'name', 'email'],
-      limit: 20,
-      offset: (page - 1) * 20,
-      include: [
-        {
-          model: File,
-          as: 'avatar',
-          attributes: ['url', 'name', 'path'],
-        },
-      ],
-    });
+    const deliverymen = deliverymanName
+      ? await Deliveryman.findAll({
+          where: {
+            name: {
+              [Op.iLike]: `${deliverymanName}`,
+            },
+          },
+          attributes: ['id', 'name', 'email'],
+          limit: 20,
+          offset: (page - 1) * 20,
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['url', 'name', 'path'],
+            },
+          ],
+        })
+      : await Deliveryman.findAll({
+          attributes: ['id', 'name', 'email'],
+          limit: 20,
+          offset: (page - 1) * 20,
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['url', 'name', 'path'],
+            },
+          ],
+        });
     return res.json(deliverymen);
   }
 

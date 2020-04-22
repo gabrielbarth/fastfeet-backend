@@ -1,7 +1,32 @@
 import * as Yup from 'yup';
+import { Op } from 'sequelize';
+
 import Recipient from '../models/Recipient';
 
 class RecipientController {
+  // listing all recipients of filtering by name and creating pagination
+  async index(req, res) {
+    const { q: recipientName, page = 1 } = req.query;
+    const recipients = recipientName
+      ? await Recipient.findAll({
+          where: {
+            name: {
+              [Op.iLike]: `${recipientName}`,
+            },
+          },
+          attributes: ['id', 'name', 'street', 'number', 'state', 'city'],
+          limit: 20,
+          offset: (page - 1) * 20,
+        })
+      : await Recipient.findAll({
+          attributes: ['id', 'name', 'street', 'number', 'state', 'city'],
+          limit: 20,
+          offset: (page - 1) * 20,
+        });
+
+    return res.json(recipients);
+  }
+
   // creating a recipient
   async store(req, res) {
     const schema = Yup.object().shape({
