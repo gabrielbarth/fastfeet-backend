@@ -16,8 +16,8 @@ class CompletedDeliveriesController {
 
     // Listing open deliveries/ Search query
     const deliveries = await Delivery.findAll({
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: 5,
+      offset: (page - 1) * 5,
       order: [['id', 'ASC']],
       where: {
         deliveryman_id: id,

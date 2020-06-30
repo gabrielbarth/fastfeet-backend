@@ -62,6 +62,7 @@ class FinalizeDeliveryController {
     const updatedDelivery = await delivery.update({
       end_date: new Date(),
       signature_id: file.id,
+      status: 'FINISHED',
     });
 
     return res.json(updatedDelivery);

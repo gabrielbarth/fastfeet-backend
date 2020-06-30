@@ -27,6 +27,36 @@ routes.post('/users', UserController.store);
 // start a session
 routes.post('/sessions', SessionController.store);
 
+// deliveryman (login mobile app)
+routes.get('/deliverymen/:id', DeliverymanController.show);
+routes.get('/deliverymen/:id/deliveries', PendingDeliveriesController.index);
+
+// deliveryman deliveries
+routes.get(
+  '/deliverymen/:id/completed-deliveries',
+  CompletedDeliveriesController.index
+);
+routes.get('/delivery/:delivery_id/problems', DeliveryProblemsController.show);
+routes.post(
+  '/delivery/:delivery_id/problems',
+  DeliveryProblemsController.store
+);
+// finalize a delivery and set a end_date
+routes.put(
+  '/deliveries/finalize/:deliveryman_id/:delivery_id',
+  upload.single('file'),
+  FinalizeDeliveryController.update
+);
+
+// withdraw a delivery and set a start_date by a deliveryman
+routes.put(
+  '/deliveries/withdraw/:deliveryman_id/:delivery_id',
+  WithdrawalDeliveryController.update
+);
+
+// file (avatar and delivery signature)
+routes.post('/files', upload.single('file'), FileController.store);
+
 routes.use(authMiddleware); // defining by global form. The execution if sequential
 
 // user after authentication
@@ -34,6 +64,7 @@ routes.put('/users', UserController.update);
 
 // recipients
 routes.get('/recipients', RecipientController.index);
+routes.get('/recipients/:id', RecipientController.show); //
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
 
@@ -45,44 +76,18 @@ routes.delete('/deliverymen/:id', DeliverymanController.delete);
 
 // deliveries
 routes.get('/deliveries', DeliveryController.index);
+routes.get('/deliveries/:id', DeliveryController.show);
 routes.post('/deliveries', DeliveryController.store);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.delete);
 
-// deliveryman deliveries
-routes.get('/deliverymen/:id/deliveries', PendingDeliveriesController.index);
-routes.get(
-  '/deliverymen/:id/completed-deliveries',
-  CompletedDeliveriesController.index
-);
-
-// withdraw a delivery and set a start_date by a deliveryman
-routes.put(
-  '/deliveries/withdraw/:deliveryman_id/:delivery_id',
-  WithdrawalDeliveryController.update
-);
-
-// finalize a delivery and set a end_date
-routes.put(
-  '/deliveries/finalize/:deliveryman_id/:delivery_id',
-  upload.single('file'),
-  FinalizeDeliveryController.update
-);
-
 // list and create delivery problems
 routes.get('/delivery/problems', DeliveryProblemsController.index);
-routes.get('/delivery/:delivery_id/problems', DeliveryProblemsController.show);
-routes.post(
-  '/delivery/:delivery_id/problems',
-  DeliveryProblemsController.store
-);
+
 // cancel a delivery based on the problem ID
 routes.delete(
   '/problem/:problem_id/cancel-delivery',
   DeliveryProblemsController.delete
 );
-
-// file (avatar and delivery signature)
-routes.post('/files', upload.single('file'), FileController.store);
 
 export default routes;

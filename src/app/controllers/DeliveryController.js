@@ -31,7 +31,7 @@ class DeliveryController {
             {
               model: Recipient,
               as: 'recipient',
-              attributes: ['id', 'name'],
+              attributes: ['id', 'name', 'street', 'number', 'city', 'state'],
             },
             {
               model: File,
@@ -42,16 +42,14 @@ class DeliveryController {
           attributes: [
             'id',
             'product',
-            'initiated',
-            'finished',
-            'canceled',
+            'status',
             'start_date',
             'end_date',
             'signature_id',
             'canceled_at',
           ],
-          limit: 20,
-          offset: (page - 1) * 20,
+          limit: 5,
+          offset: (page - 1) * 5,
         })
       : await Delivery.findAll({
           include: [
@@ -63,7 +61,7 @@ class DeliveryController {
             {
               model: Recipient,
               as: 'recipient',
-              attributes: ['id', 'name'],
+              attributes: ['id', 'name', 'street', 'number', 'city', 'state'],
             },
             {
               model: File,
@@ -74,16 +72,14 @@ class DeliveryController {
           attributes: [
             'id',
             'product',
-            'initiated',
-            'finished',
-            'canceled',
+            'status',
             'start_date',
             'end_date',
             'signature_id',
             'canceled_at',
           ],
-          limit: 20,
-          offset: (page - 1) * 20,
+          limit: 5,
+          offset: (page - 1) * 5,
         });
 
     return res.json(deliveries);
@@ -133,6 +129,7 @@ class DeliveryController {
       recipient_id,
       deliveryman_id,
       product,
+      status: 'PENDING',
     });
 
     // sending email to deliveryman
@@ -189,6 +186,32 @@ class DeliveryController {
     const newDelivery = await delivery.update(req.body);
 
     return res.json(newDelivery);
+  }
+
+  async show(req, res) {
+    const { id } = req.params;
+
+    const delivery = await Delivery.findByPk(id, {
+      attributes: ['id', 'product'],
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: ['id', 'name'],
+        },
+        {
+          model: Deliveryman,
+          as: 'deliveryman',
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+
+    if (!delivery) {
+      return res.status(400).json({ error: 'Delivery does not exists' });
+    }
+
+    return res.json(delivery);
   }
 
   async delete(req, res) {

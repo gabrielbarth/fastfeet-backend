@@ -80,6 +80,7 @@ class WithdrawlDeliveryController {
 
     const updatedDelivery = await delivery.update({
       start_date: new Date(),
+      status: 'TAKED',
     });
 
     return res.json(updatedDelivery);

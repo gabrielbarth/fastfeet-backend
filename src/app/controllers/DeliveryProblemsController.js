@@ -12,8 +12,8 @@ class DeliveryProblemsController {
     const { page = 1 } = req.query;
 
     const deliveries = await DeliveryProblem.findAll({
-      limit: 20,
-      offset: (page - 1) * 20,
+      limit: 5,
+      offset: (page - 1) * 5,
       order: [['id', 'ASC']],
       attributes: ['id', 'description'],
       include: [
@@ -104,6 +104,7 @@ class DeliveryProblemsController {
 
     await delivery.update({
       canceled_at: new Date(),
+      status: 'CANCELED',
     });
 
     delivery.save();

@@ -15,13 +15,13 @@ class RecipientController {
             },
           },
           attributes: ['id', 'name', 'street', 'number', 'state', 'city'],
-          limit: 20,
-          offset: (page - 1) * 20,
+          limit: 5,
+          offset: (page - 1) * 5,
         })
       : await Recipient.findAll({
           attributes: ['id', 'name', 'street', 'number', 'state', 'city'],
-          limit: 20,
-          offset: (page - 1) * 20,
+          limit: 5,
+          offset: (page - 1) * 5,
         });
 
     return res.json(recipients);
@@ -66,6 +66,30 @@ class RecipientController {
       state,
       city,
     });
+  }
+
+  // filtering a recipient
+  async show(req, res) {
+    const { id } = req.params;
+
+    const recipient = await Recipient.findByPk(id, {
+      attributes: [
+        'id',
+        'name',
+        'street',
+        'number',
+        'complement',
+        'state',
+        'city',
+        'zip_code',
+      ],
+    });
+
+    if (!recipient) {
+      return res.status(400).json({ error: 'Recipient does not exists' });
+    }
+
+    return res.json(recipient);
   }
 
   // updating a recipient
