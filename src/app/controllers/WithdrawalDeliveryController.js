@@ -10,7 +10,7 @@ class WithdrawlDeliveryController {
 
     const deliverymanExists = await Deliveryman.findByPk(deliveryman_id);
 
-    // Checking if the deliveryman exists
+    // Checking if deliveryman exists
     if (!deliverymanExists) {
       return res.status(400).json({ error: 'Deliveryman ID does not exist.' });
     }

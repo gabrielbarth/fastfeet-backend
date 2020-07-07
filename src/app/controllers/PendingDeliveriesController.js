@@ -1,5 +1,7 @@
 import Deliveryman from '../models/Deliveryman';
 import Delivery from '../models/Delivery';
+import Recipient from '../models/Recipient';
+import File from '../models/File';
 
 class PendingDeliveriesController {
   /**
@@ -27,6 +29,38 @@ class PendingDeliveriesController {
         end_date: null,
         canceled_at: null,
       },
+      attributes: [
+        'id',
+        'deliveryman_id',
+        'product',
+        'status',
+        'start_date',
+        'end_date',
+        'canceled_at',
+        'createdAt',
+        'updatedAt',
+      ],
+      include: [
+        {
+          model: Recipient,
+          as: 'recipient',
+          attributes: [
+            'id',
+            'name',
+            'state',
+            'city',
+            'street',
+            'number',
+            'complement',
+            'zip_code',
+          ],
+        },
+        {
+          model: File,
+          as: 'signature',
+          attributes: ['id', 'url', 'path'],
+        },
+      ],
     });
 
     return res.json(deliveries);

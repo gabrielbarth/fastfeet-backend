@@ -64,7 +64,7 @@ routes.put('/users', UserController.update);
 
 // recipients
 routes.get('/recipients', RecipientController.index);
-routes.get('/recipients/:id', RecipientController.show); //
+routes.get('/recipients/:id', RecipientController.show);
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
 

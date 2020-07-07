@@ -6,15 +6,6 @@ class FinalizeDeliveryController {
   async update(req, res) {
     const { deliveryman_id, delivery_id } = req.params;
 
-    // checking if a file was sent before (signature)
-    if (!req.file) {
-      return res
-        .status(400)
-        .json({ error: 'You must send a signature picture' });
-    }
-
-    const { filename: path, originalname: name } = req.file;
-
     const deliverymanExists = await Deliveryman.findByPk(deliveryman_id);
 
     // checking if deliveryman exists
@@ -51,17 +42,19 @@ class FinalizeDeliveryController {
       });
     }
 
-    // Adding the file to DB
-    const file = await File.create({
-      name,
-      path,
-    });
+    const { signature_id } = req.body;
+
+    const signatureImage = await File.findByPk(signature_id);
+
+    if (!signatureImage) {
+      return res.status(400).json({ error: 'Signature image does not exists' });
+    }
 
     const delivery = deliveryExists;
 
     const updatedDelivery = await delivery.update({
       end_date: new Date(),
-      signature_id: file.id,
+      signature_id,
       status: 'FINISHED',
     });
 
