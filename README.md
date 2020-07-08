@@ -36,7 +36,7 @@ A aplicação permite:
 - cadastro e remoção de problemas com encomendas (como perdas, danos, etc).
   <br>
 
-#### :rocket: See about this challange [here](https://github.com/Rocketseat/bootcamp-gostack-desafio-02)
+#### :rocket: See about this challange here: [part 1](https://github.com/Rocketseat/bootcamp-gostack-desafio-02) and [part 2](https://github.com/Rocketseat/bootcamp-gostack-desafio-03)
 
 ## :link: Project dependencies / Bibliotecas utilizadas
 
@@ -52,8 +52,6 @@ A aplicação permite:
 :heavy_check_mark: [**multer**](https://github.com/expressjs/multer) `// allows file uploads in application` <br>
 :heavy_check_mark: [**nodemailer**](https://nodemailer.com/about/) `// allow easy email sending` <br>
 :heavy_check_mark: [**nodemailer-express-handlebars**](https://github.com/yads/nodemailer-express-handlebars) `// allows build semantic templates with nodemailer` <br>
-
-
 :heavy_check_mark: [**path**](https://nodejs.org/api/path.html) `// provides utilities for working with file and directory paths` <br>
 :heavy_check_mark: [**pg**](https://node-postgres.com/) `// allows use postgrees database` <br>
 :heavy_check_mark: [**pg-hstore**](https://github.com/scarney81/pg-hstore/) `// allows use postgrees database too` <br>
@@ -61,7 +59,7 @@ A aplicação permite:
 :heavy_check_mark: [**youch**](https://github.com/poppinss/youch) `// pretty error reporting for Node.js` <br>
 :heavy_check_mark: [**yup**](https://github.com/jquense/yup) `// treats validations` <br>
 
-Bibliotecas de desenvolvimento utilizadas no projeto: <br>
+**Bibliotecas de desenvolvimento utilizadas no projeto:** <br>
 :heavy_check_mark: [**eslint**](https://eslint.org/) `// analyzes your code to quickly find problems` <br>
 :heavy_check_mark: [**nodemon**](https://nodemon.io/) `// allows automatically restarting app` <br>
 :heavy_check_mark: [**prettier**](https://prettier.io/)  `// sequelize client - ORM for SQL databases` <br>
