@@ -1,9 +1,15 @@
 <h1 align="center">
   <img alt="Fastfeet" title="Fastfeet" src="./logo-green.png" width="300px" />
   <br>
-  <br>
   FastFeet Backend
 </h1>
+
+<h3 align="center">
+:computer: Web version <a href="https://github.com/gabrielbarth/fastfeet-web">here</a>
+<br>
+:iphone: Mobile version <a href="https://github.com/gabrielbarth/fastfeet-mobile"> here</a>
+</h3>
+
 :us:
 <br>
 Backend aplication that allows delivery management. It was developed for GoStack10 bootcamp challanges 02 and 03.
@@ -12,6 +18,7 @@ Backend aplication that allows delivery management. It was developed for GoStack
 <span>&#x1f1e7;&#x1f1f7;</span>
 <br>
 Aplicação backend para permitir gestão de encomendas, desenvolvido durante os desafios 02 e 03 do bootcamp GoStack10.
+
 
 ## :mag_right: Overview / Visão geral
 
