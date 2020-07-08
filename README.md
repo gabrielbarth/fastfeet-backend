@@ -117,12 +117,11 @@ Please feel free to contributing and submitting pull requests.
 
 ## :thinking: Any question?
 
-**Contact me on my social medias:**
+**Contact me on my social medias:**<br>
 [LinkedIn](https://www.linkedin.com/in/gabriel-barth-silv%C3%A9rio-6081ba153/) <br>
 [Instagram](https://instragram.com/gb1.dev) <br>
 [YouTube](https://www.youtube.com/channel/UCmA_19d5L3WTFdDfwQ6Uenw) <br>
-[Discord](https://www.wikihow.com/Add-Friends-on-Discord) (**gabrielbarth1#0492**) <br>
-<br>
+[Discord](https://www.wikihow.com/Add-Friends-on-Discord) (**gabrielbarth1#0492**)<br>
 Or send me an email :incoming_envelope:: gabrielbarth.dev@gmail.com.
 <br>
 <br>
