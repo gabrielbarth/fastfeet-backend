@@ -36,7 +36,7 @@ class DeliveryController {
             {
               model: File,
               as: 'signature',
-              attributes: ['id', 'url'],
+              attributes: ['id', 'url', 'path'],
             },
           ],
           attributes: [
@@ -45,7 +45,6 @@ class DeliveryController {
             'status',
             'start_date',
             'end_date',
-            'signature_id',
             'canceled_at',
           ],
           limit: 5,
@@ -66,7 +65,7 @@ class DeliveryController {
             {
               model: File,
               as: 'signature',
-              attributes: ['id', 'url'],
+              attributes: ['id', 'url', 'path'],
             },
           ],
           attributes: [
@@ -75,7 +74,6 @@ class DeliveryController {
             'status',
             'start_date',
             'end_date',
-            'signature_id',
             'canceled_at',
           ],
           limit: 5,
