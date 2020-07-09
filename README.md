@@ -20,7 +20,7 @@ Backend aplication that allows delivery management. It was developed for GoStack
 Aplicação backend para permitir gestão de encomendas, desenvolvido durante os desafios 02 e 03 do bootcamp GoStack10.
 
 
-## :mag_right: Overview / Visão geral
+## :mag_right: Overview
 
 :us:
 <br>
@@ -45,7 +45,7 @@ A aplicação permite:
 
 #### :rocket: See about this challange here: [part 1](https://github.com/Rocketseat/bootcamp-gostack-desafio-02) and [part 2](https://github.com/Rocketseat/bootcamp-gostack-desafio-03)
 
-## :link: Project dependencies / Bibliotecas utilizadas
+## :link: Project dependencies
 
 :heavy_check_mark: [**sucrase**](https://github.com/alangpierce/sucrase) `// allows super-fast development builds and ES6 import/export modules` <br>
 :heavy_check_mark: [**sentry/node**](https://docs.sentry.io/platforms/node/) `// exception handling in production mode` <br>
@@ -66,7 +66,7 @@ A aplicação permite:
 :heavy_check_mark: [**youch**](https://github.com/poppinss/youch) `// pretty error reporting for Node.js` <br>
 :heavy_check_mark: [**yup**](https://github.com/jquense/yup) `// treats validations` <br>
 
-**Bibliotecas de desenvolvimento utilizadas no projeto:** <br>
+**Development dependencies:** <br>
 :heavy_check_mark: [**eslint**](https://eslint.org/) `// analyzes your code to quickly find problems` <br>
 :heavy_check_mark: [**nodemon**](https://nodemon.io/) `// allows automatically restarting app` <br>
 :heavy_check_mark: [**prettier**](https://prettier.io/)  `// sequelize client - ORM for SQL databases` <br>
