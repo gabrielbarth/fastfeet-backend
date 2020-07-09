@@ -69,8 +69,8 @@ A aplicação permite:
 **Development dependencies:** <br>
 :heavy_check_mark: [**eslint**](https://eslint.org/) `// analyzes your code to quickly find problems` <br>
 :heavy_check_mark: [**nodemon**](https://nodemon.io/) `// allows automatically restarting app` <br>
-:heavy_check_mark: [**prettier**](https://prettier.io/)  `// sequelize client - ORM for SQL databases` <br>
-:heavy_check_mark: [**sequellize-cli**](https://github.com/sequelize/cli) `// code formatter (as the name says)` <br>
+:heavy_check_mark: [**prettier**](https://prettier.io/)  `// code formatter, makes code prettier` <br>
+:heavy_check_mark: [**sequellize-cli**](https://github.com/sequelize/cli) `// sequelize client - ORM for SQL databases` <br>
 :heavy_check_mark: [**sucrase**](https://github.com/alangpierce/sucrase)  `// allows ES6 import/export modules` <br>
 <br>
 
