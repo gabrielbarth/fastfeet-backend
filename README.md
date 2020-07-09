@@ -130,5 +130,7 @@ Please feel free to contributing and submitting pull requests.
 Or send me an email :incoming_envelope:: gabrielbarth.dev@gmail.com.
 <br>
 <br>
-Made with ♥ by [Gabriel Barth](https://gabrielbarth.com)
+<p align="center">
+  Made with ♥ by <a href="https://gabrielbarth.com/">Gabriel Barth</a>
+</p>
 
